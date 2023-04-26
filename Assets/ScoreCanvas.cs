@@ -6,14 +6,18 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class ScoreCanvas : MonoBehaviour {
+    [FormerlySerializedAs("slider")]
     [FormerlySerializedAs("_slider")]
-    [SerializeField] private Slider slider;
+    [SerializeField] private Slider scoreSlider;
+    
+    [SerializeField] private Slider timeSlider;
     [SerializeField] private CanvasGroup canvasGroup;
     private void Awake() {
         canvasGroup.alpha = 0;
+        GameStateManager.Instance.OnGameStateChanged.AddListener(OnGameStateChanged);
     }
 
-    private IEnumerator Start() {
+    private IEnumerator GameStarted() {
         yield return new WaitUntil(() => TileSetup.HasSetupTiles);
         
         var totalAmountOfTiles = TileSetup.TotalAmountOfTiles;
@@ -24,19 +28,18 @@ public class ScoreCanvas : MonoBehaviour {
             GameStateManager.Score += tileCollisionHandler.meshRenderer.enabled ? -1 : 1;
         }
         
-        slider.minValue = -midPoint;
-        slider.maxValue = midPoint;
+        scoreSlider.minValue = -midPoint;
+        scoreSlider.maxValue = midPoint;
         
-        slider.value = GameStateManager.Score;
+        scoreSlider.value = GameStateManager.Score;
+        timeSlider.maxValue = GameStateManager.Instance._gameTime;
+        timeSlider.value = GameStateManager.Instance._gameTime;
         canvasGroup.alpha = 1;
-        
-        GameStateManager.Instance.OnGameStateChanged.AddListener(OnGameStateChanged);
-        GameStateManager.Instance.CurrentGameState = GameState.GameStarted;
-        OnGameStateChanged(GameStateManager.Instance.CurrentGameState);
     }
     
     private void OnGameStateChanged(GameState gameState) {
         if (gameState == GameState.GameStarted) {
+            StartCoroutine(GameStarted());
             StartCoroutine(UpdateScore());
         }
     }
@@ -45,7 +48,14 @@ public class ScoreCanvas : MonoBehaviour {
     IEnumerator UpdateScore() {
         while (true) {
             yield return wait;
-            slider.value = GameStateManager.Score;
+            scoreSlider.value = GameStateManager.Score;
+            yield return wait;
+            timeSlider.value--;
+            
+            if (timeSlider.value <= 0) {
+                GameStateManager.Instance.CurrentGameState = GameState.GameEnded;
+                break;
+            }
         }
     }
 }

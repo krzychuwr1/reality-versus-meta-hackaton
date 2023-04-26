@@ -7,8 +7,8 @@ namespace App.Scripts
 {
     public class GameStateManager : MonoSingleton<GameStateManager>
     {
-        [SerializeField] float _gameTime = 60f;
-        float starttime;
+        public float _gameTime = 60f;
+        public float starttime;
 
         private GameState _currentGameState;
         public UnityEvent<GameState> OnGameStateChanged = new UnityEvent<GameState>();
@@ -69,5 +69,6 @@ namespace App.Scripts
     {
         AnchorsSetup,
         GameStarted,
+        GameEnded,
     }
 }
