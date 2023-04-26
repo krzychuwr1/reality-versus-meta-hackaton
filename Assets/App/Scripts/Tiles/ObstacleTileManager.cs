@@ -10,9 +10,12 @@ namespace App.Scripts.Tiles {
         private Vector2 _roundedTileSize;
 
         private void Awake() {
-            var bounds = tileRenderer.bounds;
-            float x = bounds.size.x * tileRenderer.transform.lossyScale.x;
-            float y = bounds.size.y * tileRenderer.transform.lossyScale.y;
+            var bounds = tileRenderer.localBounds;
+            //Convert lossy scale to local space
+            var lossyScale = tileRenderer.transform.lossyScale;
+
+            float x = bounds.size.x * lossyScale.x;
+            float y = bounds.size.y * lossyScale.y;
             CreateTileArea(x, y);
         }
 
