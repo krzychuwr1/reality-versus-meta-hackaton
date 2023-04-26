@@ -16,7 +16,6 @@ public class CoLocatedPassthroughManager : MonoBehaviour
     public static CoLocatedPassthroughManager Instance;
     [Space]
     [Header("Local User")]
-    public GameObject passthroughSphere;
     public Transform localHead;
     public Transform localLeft;
     public Transform localRight;
@@ -34,10 +33,10 @@ public class CoLocatedPassthroughManager : MonoBehaviour
     public CoLocAvatarVisualization visualization = CoLocAvatarVisualization.MomentumPassthrough;
     [Space]
     [Header("CoLocated User Object")]
-    [SerializeField] private AvatarPassthrough avatarPrefab;
-    public string location = "A";
-    public DirectionalPassthrough directionalPassthroughPrefab;
+    [SerializeField] 
+    private AvatarPassthrough avatarPrefab;
     public bool directional = false;
+    public string location = "A";
     [HideInInspector]
     public float centerAngle = 20f, wideAngle = 150f, nearDistance = 1f, farDistance = 1.5f, multiplier = 2.8f, feather = 0.3f;
 
@@ -54,8 +53,6 @@ public class CoLocatedPassthroughManager : MonoBehaviour
         AvatarPassthrough newAvatar = Instantiate(avatarPrefab);
         newAvatar.SetTrackedObjects(head, left, right, this);
         localPassthroughCutouts.Add(newAvatar);
-        DirectionalPassthrough newDirectional = Instantiate(directionalPassthroughPrefab);
-        newDirectional.Init(head, left, right);
         return newAvatar;
     }
 
@@ -96,7 +93,6 @@ public class CoLocatedPassthroughManager : MonoBehaviour
 
     public void SessionStart()
     {
-        passthroughSphere.SetActive(false);
         localized = true;
         for (int i = 0; i < localPassthroughCutouts.Count; i++)
         {

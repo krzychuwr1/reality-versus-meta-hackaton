@@ -14,5 +14,8 @@ public class TileToggleHelper : MonoBehaviour
     }
     public void Toggle() {
         meshRenderer.enabled = !meshRenderer.enabled;
+    } 
+    public void Toggle(bool type) {
+        meshRenderer.enabled = type;
     }
 }

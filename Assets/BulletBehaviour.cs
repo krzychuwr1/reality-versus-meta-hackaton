@@ -1,17 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using App.Scripts.Utilities;
-using Photon.Pun;
 using UnityEngine;
+using Photon.Pun;
 
 public class BulletBehaviour : MonoBehaviour
 {
+    [SerializeField]
+    private bool isVirtual;
+
     private void Start()
     {
         this.ExecuteDelayed(() =>
         {
-            if (gameObject) PhotonNetwork.Destroy(gameObject);
+            if (gameObject)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
         }, 5.0f);
     }
 
@@ -19,7 +22,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         var tileCollisionHandler = other.gameObject.GetComponent<TileToggleHelper>();
         if(tileCollisionHandler != null) {
-            tileCollisionHandler.Toggle();
+            tileCollisionHandler.Toggle(isVirtual);
             PhotonNetwork.Destroy(gameObject);
         }
     }
@@ -28,7 +31,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         var tileCollisionHandler = collision.gameObject.GetComponent<TileToggleHelper>();
         if(tileCollisionHandler != null) {
-            tileCollisionHandler.Toggle();
+            tileCollisionHandler.Toggle(isVirtual);
             PhotonNetwork.Destroy(gameObject);
         }
     }
