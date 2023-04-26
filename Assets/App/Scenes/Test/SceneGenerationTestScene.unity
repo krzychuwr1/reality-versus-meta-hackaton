@@ -586,6 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallPrefab: {fileID: 4636476875310490604, guid: 7bca12fd1cd903c469fe936a824d4802, type: 3}
+  floorPrefab: {fileID: 4636476875310490604, guid: 9bb6a11ca4f00694cb39e342d27c3622, type: 3}
   obstaclePrefab: {fileID: 8196386812720120934, guid: ae26cc0335b12d24e92f49b93c9aa8ba, type: 3}
 --- !u!4 &1010886067
 Transform:
