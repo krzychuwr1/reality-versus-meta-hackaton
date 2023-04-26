@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54dafa3ad433747f8a6bf04f9640a2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileHitAudio: {fileID: 8300000, guid: bfc7ff019977048f0abe9d1e927f8de7, type: 3}

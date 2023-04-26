@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using App.Scripts.Tiles;
@@ -7,7 +8,13 @@ public class TileSetup : MonoBehaviour {
     public static int TotalAmountOfTiles = 0;
     public static bool HasSetupTiles = false;
     public static List<TileCollisionHandler> TileCollisionHandlerList = new List<TileCollisionHandler>();
-    
+    public static TileSetup Instance;
+    public AudioClip tileHitAudio;
+
+    private void Awake() {
+        Instance = this;
+    }
+
     private void Start() {
         //Subscribe to the Scene Understanding event
         WorldGenerationController.onSceneGenerated.AddListener(OnSceneUnderstandingInitialized);
