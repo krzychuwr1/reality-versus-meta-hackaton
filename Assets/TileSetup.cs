@@ -4,8 +4,6 @@ using App.Scripts.Tiles;
 using UnityEngine;
 
 public class TileSetup : MonoBehaviour {
-    public static List<TileCollisionHandler> AllTileCollisionHandlers = new List<TileCollisionHandler>();
-
     private void Start() {
         //Subscribe to the Scene Understanding event
         WorldGenerationController.onSceneGenerated.AddListener(OnSceneUnderstandingInitialized);
@@ -51,7 +49,7 @@ public class TileSetup : MonoBehaviour {
                             if (tileCollisionHandler.transform.position.x < sceneCenter.x) {
                                 tileCollisionHandler.OnHit(TileCollisionHandler.HitType.TeamVirtual);
                             }
-                            AllTileCollisionHandlers.Add(tileCollisionHandler);
+                            
                             yield return new WaitForSeconds(0.1f);
                         }
                         
