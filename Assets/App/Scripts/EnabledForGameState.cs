@@ -12,7 +12,6 @@ namespace App.Scripts
 
         void Update()
         {
-            Debug.LogError("DUpa dypa");
             foreach (var o in _gameObjects)
             {
                 o.SetActive(_gameStates != null &&
