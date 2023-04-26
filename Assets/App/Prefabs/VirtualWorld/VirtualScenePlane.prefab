@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 8451888590793605098}
   - component: {fileID: 3164640601841666586}
   - component: {fileID: 77800169494183770}
+  - component: {fileID: 1555827317921972938}
   m_Layer: 0
   m_Name: VirtualScenePlane
   m_TagString: Untagged
@@ -333,6 +334,7 @@ Transform:
   - {fileID: 3232915293131620692}
   - {fileID: 5947865162674838639}
   - {fileID: 2582655345898547900}
+  - {fileID: 3739623382440886592}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -361,6 +363,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab3ec25e32ce0c4380714d75e39cb05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1555827317921972938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636476875310490604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30f018d568ec44a1bde71e000f9d3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePrefab: {fileID: 9132857372855820733, guid: c614d0645fd834db28d4912bbebd98e8, type: 3}
+  tileSize: 1
+  tileRoot: {fileID: 3739623382440886592}
+  tileRenderer: {fileID: 1434323959153593597}
 --- !u!1 &4875569020960360415
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +856,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &8296350497167395531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3739623382440886592}
+  m_Layer: 0
+  m_Name: Tile Root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3739623382440886592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296350497167395531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8451888590793605098}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8372841883208384338
 GameObject:
   m_ObjectHideFlags: 0
