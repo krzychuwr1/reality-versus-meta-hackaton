@@ -8,6 +8,9 @@ namespace App.Scripts
     {
         private GameState _currentGameState;
         public UnityEvent<GameState> OnGameStateChanged;
+        
+        // Positive score is for the virtual team, negative score is for the reality team
+        public static int Score { get; set; }
 
         public GameState CurrentGameState
         {

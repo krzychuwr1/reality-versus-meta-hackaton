@@ -1,17 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using App.Scripts;
+using App.Scripts.Tiles;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class TileCollisionHandler : MonoBehaviour {
-    private MeshRenderer _meshRenderer;
+    [FormerlySerializedAs("_meshRenderer")]
+    public MeshRenderer meshRenderer;
     public enum HitType {
         TeamVirtual,
         TeamReality,
     }
 
     private void Awake() {
-        _meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     private void OnCollisionEnter(Collision collision) {
@@ -20,6 +24,7 @@ public class TileCollisionHandler : MonoBehaviour {
     }
 
     public void OnHit(HitType team) {
-        _meshRenderer.enabled = team == HitType.TeamReality;
+        meshRenderer.enabled = team == HitType.TeamReality;
+        GameStateManager.Score += team == HitType.TeamVirtual ? 1 : -1;
     }
 }
