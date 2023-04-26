@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Common;
+using UnityEngine.Events;
 
 public class WorldGenerationController : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class WorldGenerationController : MonoBehaviour
     List<GameObject>    sceneObjects = new List<GameObject>();
 
     bool                sceneAlignmentApplied = false;
+
+    public static UnityEvent onSceneGenerated;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +86,9 @@ public class WorldGenerationController : MonoBehaviour
             // deskObject.SetActive(sceneAlignmentApplied);
             sceneObjects.Add(deskObject);
         }
+
+        if(onSceneGenerated != null)
+            onSceneGenerated.Invoke();
 
         StartCoroutine(PlayIntroPassthrough());
     }
