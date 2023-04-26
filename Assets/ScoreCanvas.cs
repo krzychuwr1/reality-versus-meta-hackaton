@@ -34,7 +34,7 @@ public class ScoreCanvas : MonoBehaviour {
         scoreSlider.value = GameStateManager.Score;
         timeSlider.maxValue = GameStateManager.Instance._gameTime;
         timeSlider.value = GameStateManager.Instance._gameTime;
-        canvasGroup.alpha = 1;
+        canvasGroup.alpha = 0.6f;
         StartCoroutine(UpdateScore());
     }
     
