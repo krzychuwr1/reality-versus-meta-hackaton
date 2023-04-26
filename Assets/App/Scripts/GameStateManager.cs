@@ -45,6 +45,11 @@ namespace App.Scripts
 
         private IEnumerator PopUpController()
         {
+            if (GameView.Instance == null)
+            {
+                Debug.LogError("Something os wrong with GameView, it's null");
+                yield break;
+            }
             GameView.Instance.ShowGamePopupPanel("Have Fun!", "3 Minutes left.", 3);
             yield return new WaitForSeconds(60);
             GameView.Instance.ShowGamePopupPanel("2 Minutes", "left", 3);
