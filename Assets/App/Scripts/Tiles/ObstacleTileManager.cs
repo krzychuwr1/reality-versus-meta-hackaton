@@ -1,28 +1,33 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace App.Scripts.Tiles {
-    public class TileManager : MonoBehaviour {
+    public class ObstacleTileManager : MonoBehaviour {
         [SerializeField] private GameObject tilePrefab;
         [SerializeField] private int tileSize = 1;
         [SerializeField] private Transform tileRoot;
         [SerializeField] private Renderer tileRenderer;
         private Vector2 _roundedTileSize;
+        public event Action<List<TileCollisionHandler>> OnTileCreationComplete;
 
-        private void Awake() {
+        public void InitializeTiles() {
             var bounds = tileRenderer.localBounds;
-            float x = bounds.size.x * transform.localScale.x;
-            float y = bounds.size.y * transform.localScale.y;
+            //Convert lossy scale to local space
+            var lossyScale = tileRenderer.transform.lossyScale;
+
+            float x = bounds.size.x * lossyScale.x;
+            float y = bounds.size.y * lossyScale.y;
             CreateTileArea(x, y);
         }
 
         //Create a tile area with a horizontal orientation
         public void CreateTileArea(float x, float y) {
-            var tiles = new List<Tile>();
+            var tiles = new List<TileCollisionHandler>();
 
             //Fit tiles per axis
             float tilesInX = Mathf.Floor(x / tileSize);
-            float tilesInY = Mathf.Floor(y / tileSize);
+            float tilesInY = Mathf.Clamp(Mathf.Floor(y / tileSize), 1, Mathf.Infinity);
 
             //Scale the tiles to fit the x and y axis
             _roundedTileSize = new Vector2(x / tilesInX, y / tilesInY);
@@ -46,8 +51,11 @@ namespace App.Scripts.Tiles {
                     //Set the tile position to the correct position according to the current tile index
                     localPosition -= new Vector3(i * tileGo.transform.localScale.x, -j * tileGo.transform.localScale.y, 0);
                     tileGo.transform.localPosition = localPosition;
+                    tiles.Add(tileGo.GetComponent<TileCollisionHandler>());
                 }
             }
+            
+            OnTileCreationComplete?.Invoke(tiles);
         }
     }
 }

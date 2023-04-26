@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Common;
+using UnityEngine.Events;
 
 public class WorldGenerationController : MonoBehaviour
 {
     [SerializeField]
     GameObject          wallPrefab;
+    [SerializeField]
+    GameObject          floorPrefab;
+
 
     [SerializeField]
     GameObject          obstaclePrefab;
@@ -14,6 +18,9 @@ public class WorldGenerationController : MonoBehaviour
     List<GameObject>    sceneObjects = new List<GameObject>();
 
     bool                sceneAlignmentApplied = false;
+
+    public static UnityEvent onSceneGenerated = new UnityEvent();
+    
 
     // Start is called before the first frame update
     void Start()
@@ -55,13 +62,13 @@ public class WorldGenerationController : MonoBehaviour
             Destroy(obj);
         sceneObjects.Clear();
 
-        GameObject newFloor = GameObject.Instantiate(wallPrefab,scene.floor.position,scene.floor.rotation);
+        GameObject newFloor = GameObject.Instantiate(floorPrefab,scene.floor.position,scene.floor.rotation);
         newFloor.transform.localScale = new Vector3(scene.floor.rect.width, scene.floor.rect.height, 0.07f);
         newFloor.transform.rotation = scene.floor.rotation * Quaternion.Euler(180, 0, 0);
         // newFloor.SetActive(sceneAlignmentApplied);
         sceneObjects.Add(newFloor);
 
-        GameObject newCeiling = GameObject.Instantiate(wallPrefab, scene.ceiling.position, scene.ceiling.rotation);
+        GameObject newCeiling = GameObject.Instantiate(floorPrefab, scene.ceiling.position, scene.ceiling.rotation);
         newCeiling.transform.localScale = new Vector3(scene.ceiling.rect.width, scene.ceiling.rect.height, 0.07f);
         newCeiling.transform.rotation = scene.ceiling.rotation * Quaternion.Euler(180, 0, 0);
         // newCeiling.SetActive(sceneAlignmentApplied);
@@ -82,6 +89,9 @@ public class WorldGenerationController : MonoBehaviour
             // deskObject.SetActive(sceneAlignmentApplied);
             sceneObjects.Add(deskObject);
         }
+
+        if(onSceneGenerated != null)
+            onSceneGenerated.Invoke();
 
         StartCoroutine(PlayIntroPassthrough());
     }

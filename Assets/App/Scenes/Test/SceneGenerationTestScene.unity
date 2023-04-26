@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -330,6 +330,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2982998299359123673, guid: 60fa00281e83b294583adc31df520fbe, type: 3}
   m_PrefabInstance: {fileID: 414526142}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &415530511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415530513}
+  - component: {fileID: 415530512}
+  m_Layer: 0
+  m_Name: TileSetup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &415530512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415530511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54dafa3ad433747f8a6bf04f9640a2f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &415530513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415530511}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4011474, y: 0.23029399, z: 0.0861361}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &689383568
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallPrefab: {fileID: 4636476875310490604, guid: 7bca12fd1cd903c469fe936a824d4802, type: 3}
+  floorPrefab: {fileID: 4636476875310490604, guid: 9bb6a11ca4f00694cb39e342d27c3622, type: 3}
   obstaclePrefab: {fileID: 8196386812720120934, guid: ae26cc0335b12d24e92f49b93c9aa8ba, type: 3}
 --- !u!4 &1010886067
 Transform:
