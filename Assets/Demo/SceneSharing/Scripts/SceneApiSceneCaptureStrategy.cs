@@ -38,10 +38,15 @@ namespace Common
 
         [SerializeField]
         WorldGenerationController worldGenerationController;
+        [SerializeField]
+        bool debugWithoutPhoton;
 
         public override void Start()
         {
-
+            if(debugWithoutPhoton) {
+                InitSceneCapture();
+                BeginCaptureScene();
+            }
         }
 
         public void InitSceneCapture()
@@ -73,6 +78,30 @@ namespace Common
         private void OnSceneCreated(Scene scene)
         {
             SampleController.Instance.Log("PhotonAnchorManager::OnSceneCreated - Scene Capture Complete");
+
+            if (debugWithoutPhoton)
+            {
+                SaveSceneDataJson(scene);
+                worldGenerationController.GenerateWorld(scene);
+            }
+
+        }
+
+        private void SaveSceneDataJson(Scene scene) {
+            // save scene to local disc
+            var json = JsonUtility.ToJson(scene);
+            var folderPath = Path.Combine(Application.persistentDataPath, "SavedRealWorldCollections");
+
+            var folderInfo = new DirectoryInfo(folderPath);
+            if (!folderInfo.Exists) {
+                folderInfo = Directory.CreateDirectory(folderInfo.FullName);
+            }
+            var path = Path.Combine(folderInfo.FullName,"RealWorldCollection_"+DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".json");
+            SampleController.Instance.Log("Save room data to: " + path);
+            using (StreamWriter writer = new StreamWriter(path, false))
+            {
+                writer.Write(json);
+            }
         }
 
         private void Cleanup()

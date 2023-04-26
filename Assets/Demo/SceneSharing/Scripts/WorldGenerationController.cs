@@ -58,13 +58,13 @@ public class WorldGenerationController : MonoBehaviour
         GameObject newFloor = GameObject.Instantiate(wallPrefab,scene.floor.position,scene.floor.rotation);
         newFloor.transform.localScale = new Vector3(scene.floor.rect.width, scene.floor.rect.height, 0.07f);
         newFloor.transform.rotation = scene.floor.rotation * Quaternion.Euler(180, 0, 0);
-        newFloor.SetActive(sceneAlignmentApplied);
+        // newFloor.SetActive(sceneAlignmentApplied);
         sceneObjects.Add(newFloor);
 
         GameObject newCeiling = GameObject.Instantiate(wallPrefab, scene.ceiling.position, scene.ceiling.rotation);
         newCeiling.transform.localScale = new Vector3(scene.ceiling.rect.width, scene.ceiling.rect.height, 0.07f);
         newCeiling.transform.rotation = scene.ceiling.rotation * Quaternion.Euler(180, 0, 0);
-        newCeiling.SetActive(sceneAlignmentApplied);
+        // newCeiling.SetActive(sceneAlignmentApplied);
         sceneObjects.Add(newCeiling);
 
         foreach (var wall in scene.walls)
@@ -72,14 +72,14 @@ public class WorldGenerationController : MonoBehaviour
             GameObject newWall = GameObject.Instantiate(wallPrefab,wall.position,wall.rotation);
             newWall.transform.localScale = new Vector3(wall.rect.width, wall.rect.height, 0.07f);
             newWall.transform.rotation = wall.rotation * Quaternion.Euler(0, 180, 0);
-            newWall.SetActive(sceneAlignmentApplied);
+            // newWall.SetActive(sceneAlignmentApplied);
             sceneObjects.Add(newWall);
         }
         GameObject deskObject = null;
         foreach (var obstacle in scene.obstacles)
         {
             deskObject = PopulateScaledObstacle(obstacle, ObstacleType.Desk);
-            deskObject.SetActive(sceneAlignmentApplied);
+            // deskObject.SetActive(sceneAlignmentApplied);
             sceneObjects.Add(deskObject);
         }
 
