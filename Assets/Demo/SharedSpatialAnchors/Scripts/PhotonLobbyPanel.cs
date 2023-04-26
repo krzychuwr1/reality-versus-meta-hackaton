@@ -27,6 +27,9 @@ public class PhotonLobbyPanel : MonoBehaviour
     [SerializeField]
     private PokeInteractable        joinRoomPokeInter;
 
+    [SerializeField]
+    private string        debugRoomName = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +52,9 @@ public class PhotonLobbyPanel : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (lobbyRowList.Count > 0)
+            if (lobbyRowList.Count > 0 || debugRoomName != "")
             {
-                AttemptToJoinRoom(lobbyRowList[0].GetComponent<PhotonLobbyRow>().GetRowText());
+                AttemptToJoinRoom(debugRoomName != "" ? debugRoomName : lobbyRowList[0].GetComponent<PhotonLobbyRow>().GetRowText());
             }
         }
         //-------------------------------------------------------------------------------
@@ -59,18 +62,18 @@ public class PhotonLobbyPanel : MonoBehaviour
 
     public void OnCreateRoomButtonPressed()
     {
-        SampleController.Instance.Log("OnCreateRoomButtonPressed");
+        SampleController.Instance.Log("OnCreateRoomButtonPressed " + debugRoomName);
 
         if (PhotonPun.PhotonNetwork.IsConnected)
         {
             if (PhotonPun.PhotonNetwork.NickName != "")
-                anchorManager.CreateNewRoomForLobby(PhotonPun.PhotonNetwork.NickName);
+                anchorManager.CreateNewRoomForLobby(debugRoomName != "" ? debugRoomName :  PhotonPun.PhotonNetwork.NickName);
             else
             {
                 Random.InitState((int)(Time.time * 10000));
                 string testName = "TestUser" + Random.Range(0, 1000);
                 PhotonPun.PhotonNetwork.NickName = testName;
-                anchorManager.CreateNewRoomForLobby(testName);
+                anchorManager.CreateNewRoomForLobby(debugRoomName != "" ? debugRoomName : testName);
             }
 
             menuPanel.SetActive(true);
@@ -103,7 +106,7 @@ public class PhotonLobbyPanel : MonoBehaviour
 
     void AttemptToJoinRoom(string roomName)
     {
-        SampleController.Instance.Log("OnJoinRoomButtonPressed");
+        SampleController.Instance.Log("OnJoinRoomButtonPressed " + debugRoomName);
 
         if (PhotonPun.PhotonNetwork.NickName == "")
         {
@@ -111,7 +114,7 @@ public class PhotonLobbyPanel : MonoBehaviour
             PhotonPun.PhotonNetwork.NickName = testName;
         }
 
-        anchorManager.JoinRoomFromLobby(roomName);
+        anchorManager.JoinRoomFromLobby(debugRoomName != "" ? debugRoomName : roomName);
 
         menuPanel.SetActive(true);
         gameObject.SetActive(false);

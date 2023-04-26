@@ -233,7 +233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &185622190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,7 +767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1538158550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldGenerationController: {fileID: 1010886066}
-  debugScenePath: Assets/App/Data/RoomData/RealWorldCollection_2023-04-26-09-21-43.json
+  debugScenePath: Assets/App/Data/RoomData/RealWorldCollection_2023-04-26-10-20-36.json
 --- !u!4 &1538158551
 Transform:
   m_ObjectHideFlags: 0

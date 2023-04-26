@@ -188,8 +188,12 @@ public class SharedAnchor : MonoBehaviour
     {
         SampleController.Instance.Log(nameof(OnShareButtonPressed));
 
+
+
         if (!IsReadyToShare())
         {
+            Debug.LogError("Not ready to share");
+
             return;
         }
 
@@ -197,6 +201,7 @@ public class SharedAnchor : MonoBehaviour
 
         OVRSpatialAnchor.SaveOptions saveOptions;
         saveOptions.Storage = OVRSpace.StorageLocation.Cloud;
+            
         _spatialAnchor.Save(saveOptions, (spatialAnchor, isSuccessful) =>
         {            
             if (isSuccessful)
