@@ -1,11 +1,27 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace App.Scripts
 {
     public class GameStateManager : MonoSingleton<GameStateManager>
     {
-        public GameState CurrentGameState;
+        private GameState _currentGameState;
+        public UnityEvent<GameState> OnGameStateChanged;
+
+        public GameState CurrentGameState
+        {
+            get => _currentGameState;
+            set
+            {
+                var previousGameState = _currentGameState;
+                _currentGameState = value;
+                if (previousGameState != _currentGameState)
+                {
+                    OnGameStateChanged.Invoke(_currentGameState);
+                }
+            }
+        }
 
         private void Awake()
         {
