@@ -39,6 +39,7 @@ namespace App.Scripts
         {
             this.CurrentGameState = GameState.GameStarted;
             starttime = Time.time;
+            StopAllCoroutines();
             StartCoroutine(PopUpController());
         }
 
@@ -56,6 +57,11 @@ namespace App.Scripts
             yield return new WaitForSeconds(1);
             GameView.Instance.ShowGamePopupPanel("1", "", 0.8f);
             yield return new WaitForSeconds(1);
+            if(Score > 0) {
+                GameView.Instance.ShowGamePopupPanel("Virtual Team wins", "", 5f);
+            } else {
+                GameView.Instance.ShowGamePopupPanel("Reality Team wins", "", 5f);
+            }
         }
     }
 
