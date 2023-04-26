@@ -2757,6 +2757,11 @@ MonoBehaviour:
   _asTriggers: 0
   _useLayer: 0
   _mask: 16777215
+--- !u!4 &1392837955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+  m_PrefabInstance: {fileID: 1867148066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1398871481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3437,7 +3442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4519461025698783881, guid: fbfc588a949bb1a42b20e5bddc4cf8cf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5337543680369237675, guid: fbfc588a949bb1a42b20e5bddc4cf8cf, type: 3}
       propertyPath: m_IsActive
@@ -3708,15 +3713,15 @@ PrefabInstance:
     - target: {fileID: 2890995210028359436, guid: 38c220b62003ee144a19ef7f16609aa4, type: 3}
       propertyPath: localHead
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1392837955}
     - target: {fileID: 2890995210028359436, guid: 38c220b62003ee144a19ef7f16609aa4, type: 3}
       propertyPath: localLeft
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1867148070}
     - target: {fileID: 2890995210028359436, guid: 38c220b62003ee144a19ef7f16609aa4, type: 3}
       propertyPath: localRight
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1867148069}
     - target: {fileID: 2890995210028359436, guid: 38c220b62003ee144a19ef7f16609aa4, type: 3}
       propertyPath: directional
       value: 1
