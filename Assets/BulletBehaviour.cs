@@ -1,13 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using App.Scripts.Utilities;
+using Photon.Pun;
 using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
     private void Start()
     {
-        Destroy(this, 5);
+        this.ExecuteDelayed(() =>
+        {
+            if (gameObject) PhotonNetwork.Destroy(gameObject);
+        }, 5.0f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -15,7 +20,7 @@ public class BulletBehaviour : MonoBehaviour
         var tileCollisionHandler = other.gameObject.GetComponent<TileToggleHelper>();
         if(tileCollisionHandler != null) {
             tileCollisionHandler.Toggle();
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 
@@ -24,7 +29,7 @@ public class BulletBehaviour : MonoBehaviour
         var tileCollisionHandler = collision.gameObject.GetComponent<TileToggleHelper>();
         if(tileCollisionHandler != null) {
             tileCollisionHandler.Toggle();
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 }
