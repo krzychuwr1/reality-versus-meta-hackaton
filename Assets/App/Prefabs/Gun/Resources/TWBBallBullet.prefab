@@ -5173,4 +5173,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9292e68593e9e1a4aaf80a238f2efc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debrisPrefab: {fileID: 6930155120983369476, guid: 885239b7d807bdd418404cde7bbe8df2, type: 3}
+  _trail: {fileID: 0}
