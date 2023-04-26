@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace App.Scripts.Tiles {
         [SerializeField] private Transform tileRoot;
         [SerializeField] private Renderer tileRenderer;
         private Vector2 _roundedTileSize;
+        public event Action<List<TileCollisionHandler>> OnTileCreationComplete;
 
         private void Awake() {
             var bounds = tileRenderer.localBounds;
@@ -18,7 +20,7 @@ namespace App.Scripts.Tiles {
 
         //Create a tile area with a horizontal orientation
         public void CreateTileArea(float x, float y) {
-            var tiles = new List<Tile>();
+            var tiles = new List<TileCollisionHandler>();
 
             //Fit tiles per axis
             float tilesInX = Mathf.Floor(x / tileSize);
@@ -46,8 +48,11 @@ namespace App.Scripts.Tiles {
                     //Set the tile position to the correct position according to the current tile index
                     localPosition -= new Vector3(i * tileGo.transform.localScale.x, -j * tileGo.transform.localScale.y, 0);
                     tileGo.transform.localPosition = localPosition;
+                    tiles.Add(tileGo.GetComponent<TileCollisionHandler>());
                 }
             }
+            
+            OnTileCreationComplete?.Invoke(tiles);
         }
     }
 }
