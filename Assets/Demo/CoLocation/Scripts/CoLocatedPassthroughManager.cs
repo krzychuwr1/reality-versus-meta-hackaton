@@ -35,6 +35,8 @@ public class CoLocatedPassthroughManager : MonoBehaviour
     [Header("CoLocated User Object")]
     [SerializeField] 
     private AvatarPassthrough avatarPrefab;
+    public bool directional = false;
+    public string location = "A";
     [HideInInspector]
     public float centerAngle = 20f, wideAngle = 150f, nearDistance = 1f, farDistance = 1.5f, multiplier = 2.8f, feather = 0.3f;
 
