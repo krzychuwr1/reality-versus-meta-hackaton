@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5b3986efad2e44fbf7c587a0e0d41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: 1
+  controller: 2
   bulletA: {fileID: -8892905463002394703, guid: ef67ad2485b80614aa444d7d834c16c1, type: 3}
   bulletB: {fileID: -8892905463002394703, guid: 628e559a209e8974788dece5e74e3bdc, type: 3}
   nozzle: {fileID: 8935170845263996270}
