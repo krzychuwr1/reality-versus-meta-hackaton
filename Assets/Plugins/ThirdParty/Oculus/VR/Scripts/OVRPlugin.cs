@@ -41,6 +41,7 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
+using System.Linq;
 
 // Internal C# wrapper for OVRPlugin.
 
@@ -7664,7 +7665,10 @@ public static partial class OVRPlugin
 #else
 		if (version >= OVRP_1_72_0.version)
 		{
-			return OVRP_1_72_0.ovrp_SaveSpace(ref space, location, mode, out requestId) == Result.Success;
+
+			Result value = OVRP_1_72_0.ovrp_SaveSpace(ref space, location, mode, out requestId);
+			Debug.Log($"ovrp_SaveSpace : {value}, space :{space}, location :{location}, id :{requestId}");
+			return value == Result.Success;
 		}
 		else
 		{
@@ -7877,8 +7881,11 @@ public static partial class OVRPlugin
 #else
 		if (version >= OVRP_1_79_0.version)
 		{
-			return OVRP_1_79_0.ovrp_ShareSpaces((ulong*)spaces.GetUnsafeReadOnlyPtr(), (uint)spaces.Length,
+			var a=  OVRP_1_79_0.ovrp_ShareSpaces((ulong*)spaces.GetUnsafeReadOnlyPtr(), (uint)spaces.Length,
 				(ulong*)userHandles.GetUnsafeReadOnlyPtr(), (uint)userHandles.Length, out requestId);
+			Debug.Log($"ovrp_ShareSpaces : ({string.Join(", ", spaces.Select(s => s.ToString()))}) {a}, id :{requestId}");
+
+			return a;
 		}
 		else
 		{

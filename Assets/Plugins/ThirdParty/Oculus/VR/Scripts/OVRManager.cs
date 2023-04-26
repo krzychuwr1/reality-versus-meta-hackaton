@@ -2338,6 +2338,7 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
                     }
                     break;
                 case OVRPlugin.EventType.SpaceSaveComplete:
+                    Debug.Log("SpaceSaveComplete");
                     if (SpaceSaveComplete != null)
                     {
                         var data =
@@ -2356,6 +2357,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
                     }
                     break;
                 case OVRPlugin.EventType.SpaceShareResult:
+                    Debug.Log("SpaceShareResult");
+
                     if (ShareSpacesComplete != null)
                     {
                         var data =
@@ -2366,13 +2369,21 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
                     }
                     break;
                 case OVRPlugin.EventType.SpaceListSaveResult:
+                    Debug.Log("SpaceListSaveResult");
+
                     if (SpaceListSaveComplete != null)
                     {
+                        Debug.Log("Log 0");
+
                         var data =
                             OVRDeserialize.ByteArrayToStructure<OVRDeserialize.SpaceListSaveResultData>(
                                 eventDataBuffer.EventData);
 
+                        Debug.Log($"Log 1 {data.RequestId}, {data.Result}");
+
                         SpaceListSaveComplete(data.RequestId, (OVRSpatialAnchor.OperationResult)data.Result);
+
+                        Debug.Log("Log 2");
                     }
                     break;
                 case OVRPlugin.EventType.SceneCaptureComplete:

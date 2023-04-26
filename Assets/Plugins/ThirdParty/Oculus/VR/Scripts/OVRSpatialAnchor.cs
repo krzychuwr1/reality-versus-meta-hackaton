@@ -201,9 +201,12 @@ public class OVRSpatialAnchor : MonoBehaviour
 	/// </param>
 	public void Save(SaveOptions saveOptions, Action<OVRSpatialAnchor, bool> onComplete = null)
 	{
+		Debug.LogError($"Before save");
+
 		var saved = OVRPlugin.SaveSpace(Space, saveOptions.Storage.ToSpaceStorageLocation(),
 			OVRPlugin.SpaceStoragePersistenceMode.Indefinite, out var requestId);
 
+		Debug.LogError($"{requestId} after save");
 
 		void Callback(OVRSpatialAnchor anchor, bool success)
 		{
@@ -213,6 +216,7 @@ public class OVRSpatialAnchor : MonoBehaviour
 		if (saved)
 		{
 			Development.LogRequest(requestId, $"[{Uuid}] Saving spatial anchor...");
+			Debug.Log($"[{requestId}] Saving spatial anchor...");
 			SingleAnchorCompletionDelegates[requestId] = new SingleAnchorDelegatePair
 			{
 				Anchor = this,
@@ -221,7 +225,7 @@ public class OVRSpatialAnchor : MonoBehaviour
 		}
 		else
 		{
-			Development.LogError($"[{Uuid}] {nameof(OVRPlugin)}.{nameof(OVRPlugin.SaveSpace)} failed.");
+			Debug.LogError($"[{Uuid}] {nameof(OVRPlugin)}.{nameof(OVRPlugin.SaveSpace)} failed.");
 			Callback(this, false);
 		}
 	}
