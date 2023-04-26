@@ -8,8 +8,10 @@ namespace App.Prefabs.PhotonPrefabSpawner
     public class OnGameStartPhotonPrefabSpawner : MonoBehaviour
     {
         [SerializeField]
-        private GameObject _prefabToSpawn;
-    
+        private GameObject weaponA;
+        [SerializeField]
+        private GameObject weaponB;
+
         void Start()
         {
             GameStateManager.Instance.OnGameStateChanged.AddListener(InstantiatePrefab);
@@ -19,7 +21,11 @@ namespace App.Prefabs.PhotonPrefabSpawner
         {
             if (state == GameState.GameStarted)
             {
-                PhotonNetwork.Instantiate(_prefabToSpawn.name, transform.position, Quaternion.identity);
+                bool isVirtual = PhotonNetwork.LocalPlayer.ActorNumber % 2 > 0;
+
+                GameObject weapon = PhotonNetwork.Instantiate(isVirtual ? weaponA.name : weaponB.name, transform.position, transform.rotation);
+
+                weapon.GetComponent<WeaponBehaviour>().IsVirtual = isVirtual;
             }
         }
 

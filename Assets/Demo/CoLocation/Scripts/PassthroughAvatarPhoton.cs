@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class PassthroughAvatarPhoton : MonoBehaviour, IPunObservable
 {
-    public GameObject headPrefab, leftAPrefab, rightAPrefab, leftBPrefab, rightBPrefab;
+    public GameObject headPrefab, leftPrefab, rightPrefab;
     private Transform head, right, left, body;
     private AvatarPassthrough passthrough;
     private PhotonView photonView;
@@ -14,29 +14,24 @@ public class PassthroughAvatarPhoton : MonoBehaviour, IPunObservable
     {
         photonView = GetComponent<PhotonView>();
 
-        body = new GameObject("Player" + photonView.CreatorActorNr).transform;
-        bool isVirtual = PhotonNetwork.LocalPlayer.ActorNumber % 2 > 0;
-
         if (!photonView.IsMine)
         {
-            head = headPrefab == null ?new GameObject("head").transform : Instantiate(headPrefab, Vector3.zero, Quaternion.identity).transform;
-            
-            head.SetParent(body);
-        }
-        else
-        {
-            right = PhotonNetwork.Instantiate(isVirtual ? rightAPrefab.name : rightBPrefab.name, Vector3.zero, Quaternion.identity).transform;
-            WeaponBehaviour rightGun = right.GetComponent<WeaponBehaviour>();
-            rightGun.IsMine = photonView.IsMine;
-            rightGun.IsVirtual = isVirtual;
+            body = new GameObject("Player" + photonView.CreatorActorNr).transform;
+            head = headPrefab == null ?
+                new GameObject("head").transform :
+                Instantiate(headPrefab, Vector3.zero, Quaternion.identity).transform;
+            right = rightPrefab == null ?
+                new GameObject("right").transform :
+                Instantiate(rightPrefab, Vector3.zero, Quaternion.identity).transform;
+            left = leftPrefab == null ?
+                new GameObject("left").transform :
+                Instantiate(leftPrefab, Vector3.zero, Quaternion.identity).transform;
 
-            left = PhotonNetwork.Instantiate(isVirtual ? leftAPrefab.name : rightBPrefab.name, Vector3.zero, Quaternion.identity).transform;
-            WeaponBehaviour leftGun = right.GetComponent<WeaponBehaviour>();
-            leftGun.IsMine = photonView.IsMine;
-            leftGun.IsVirtual = isVirtual;
+            head.SetParent(body);
+
+            right.SetParent(body);
+            left.SetParent(body);
         }
-        right.SetParent(body);
-        left.SetParent(body);
 
         passthrough = CoLocatedPassthroughManager.Instance.AddCoLocalUser(head, right, left);
         passthrough.IsMine = photonView.IsMine;

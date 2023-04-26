@@ -15,12 +15,18 @@ public class WeaponBehaviour : MonoBehaviour
     private float force = 5f;
 
     public bool IsVirtual { get; set; }
-    public bool IsMine { get; set; }
 
-    // Update is called once per frame
+    private bool isMine;
+
+    private void Start()
+    {
+        PhotonView view = GetComponent<PhotonView>();
+        isMine = view.IsMine;
+    }
+
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, controller) && IsMine)
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, controller) && isMine)
         {
             BulletBehaviour bulletTemplate = IsVirtual ? bulletA : bulletB;
 
