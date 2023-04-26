@@ -12,6 +12,7 @@ namespace App.Scripts
 
         void Update()
         {
+            if (_gameObjects == null) return;
             foreach (var o in _gameObjects)
             {
                 o.SetActive(_gameStates != null &&

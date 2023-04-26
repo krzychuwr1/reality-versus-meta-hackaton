@@ -4,6 +4,10 @@ using App.Scripts.Tiles;
 using UnityEngine;
 
 public class TileSetup : MonoBehaviour {
+    public static int TotalAmountOfTiles = 0;
+    public static bool HasSetupTiles = false;
+    public static List<TileCollisionHandler> TileCollisionHandlerList = new List<TileCollisionHandler>();
+    
     private void Start() {
         //Subscribe to the Scene Understanding event
         WorldGenerationController.onSceneGenerated.AddListener(OnSceneUnderstandingInitialized);
@@ -41,6 +45,11 @@ public class TileSetup : MonoBehaviour {
 
                 var sceneCenter = Vector3.zero;
 
+                foreach (var handlersLists in tileCollisionHandlersLists) {
+                    TotalAmountOfTiles += handlersLists.Count;
+                    TileCollisionHandlerList.AddRange(handlersLists);
+                }
+
                 StartCoroutine(CreateTiles());
                 IEnumerator CreateTiles() {
                     //Get all plane tile managers to the left of the scene center on the x axis
@@ -49,12 +58,13 @@ public class TileSetup : MonoBehaviour {
                             if (tileCollisionHandler.transform.position.x < sceneCenter.x) {
                                 tileCollisionHandler.OnHit(TileCollisionHandler.HitType.TeamVirtual);
                             }
-                            
+
                             yield return new WaitForSeconds(0.1f);
                         }
                         
                         yield return new WaitForSeconds(0.1f);
                     }
+                    HasSetupTiles = true;
                 }
             }
         }

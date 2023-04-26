@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -826,7 +826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldGenerationController: {fileID: 1010886066}
-  debugScenePath: Assets/App/Data/RoomData/RealWorldCollection_2023-04-26-10-20-36.json
+  debugScenePath: Assets/App/Data/RoomData/RealWorldCollection_2023-04-26-13-47-48.json
 --- !u!4 &1538158551
 Transform:
   m_ObjectHideFlags: 0
