@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 77800169494183770}
   - component: {fileID: 1555827317921972938}
   m_Layer: 0
-  m_Name: VirtualScenePlane
+  m_Name: VirtualSceneFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,7 +525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7403058976756899405
 Transform:
   m_ObjectHideFlags: 0

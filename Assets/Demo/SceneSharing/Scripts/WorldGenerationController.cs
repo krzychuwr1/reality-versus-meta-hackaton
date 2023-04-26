@@ -8,6 +8,9 @@ public class WorldGenerationController : MonoBehaviour
 {
     [SerializeField]
     GameObject          wallPrefab;
+    [SerializeField]
+    GameObject          floorPrefab;
+
 
     [SerializeField]
     GameObject          obstaclePrefab;
@@ -59,13 +62,13 @@ public class WorldGenerationController : MonoBehaviour
             Destroy(obj);
         sceneObjects.Clear();
 
-        GameObject newFloor = GameObject.Instantiate(wallPrefab,scene.floor.position,scene.floor.rotation);
+        GameObject newFloor = GameObject.Instantiate(floorPrefab,scene.floor.position,scene.floor.rotation);
         newFloor.transform.localScale = new Vector3(scene.floor.rect.width, scene.floor.rect.height, 0.07f);
         newFloor.transform.rotation = scene.floor.rotation * Quaternion.Euler(180, 0, 0);
         // newFloor.SetActive(sceneAlignmentApplied);
         sceneObjects.Add(newFloor);
 
-        GameObject newCeiling = GameObject.Instantiate(wallPrefab, scene.ceiling.position, scene.ceiling.rotation);
+        GameObject newCeiling = GameObject.Instantiate(floorPrefab, scene.ceiling.position, scene.ceiling.rotation);
         newCeiling.transform.localScale = new Vector3(scene.ceiling.rect.width, scene.ceiling.rect.height, 0.07f);
         newCeiling.transform.rotation = scene.ceiling.rotation * Quaternion.Euler(180, 0, 0);
         // newCeiling.SetActive(sceneAlignmentApplied);
