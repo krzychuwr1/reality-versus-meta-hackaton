@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace App.Scripts.Tiles {
-    public class TileManager : MonoBehaviour {
+    public class PlaneTileManager : MonoBehaviour {
         [SerializeField] private GameObject tilePrefab;
         [SerializeField] private int tileSize = 1;
         [SerializeField] private Transform tileRoot;
