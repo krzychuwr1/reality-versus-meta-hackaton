@@ -7,7 +7,7 @@ namespace App.Scripts
     public class GameStateManager : MonoSingleton<GameStateManager>
     {
         private GameState _currentGameState;
-        public UnityEvent<GameState> OnGameStateChanged;
+        public UnityEvent<GameState> OnGameStateChanged = new UnityEvent<GameState>();
         
         // Positive score is for the virtual team, negative score is for the reality team
         public static int Score { get; set; }
