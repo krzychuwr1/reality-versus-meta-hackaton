@@ -111,7 +111,7 @@ public class WorldGenerationController : MonoBehaviour
         }
 
         Vector3 deskPos = obstacle.position;
-        deskPos.y += obstacleScale.y;
+        // deskPos.y += obstacleScale.y;
 
         GameObject obstacleDeskGameObject = Object.Instantiate(obstaclePrefab, deskPos, obstacleRotation);
         obstacleDeskGameObject.transform.localScale = obstacleScale;

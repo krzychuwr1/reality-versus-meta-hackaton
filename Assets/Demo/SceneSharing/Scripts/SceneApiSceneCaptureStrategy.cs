@@ -78,10 +78,10 @@ namespace Common
         private void OnSceneCreated(Scene scene)
         {
             SampleController.Instance.Log("PhotonAnchorManager::OnSceneCreated - Scene Capture Complete");
+            SaveSceneDataJson(scene);
 
             if (debugWithoutPhoton)
             {
-                SaveSceneDataJson(scene);
                 worldGenerationController.GenerateWorld(scene);
             }
 
