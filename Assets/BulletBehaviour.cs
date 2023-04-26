@@ -15,7 +15,7 @@ public class BulletBehaviour : MonoBehaviour
         this.ExecuteDelayed(() =>
         {
             if (gameObject) PhotonNetwork.Destroy(gameObject);
-        }, 0.3f);
+        }, 5f);
         var bulletTransform = transform;
         _trailInstance = Instantiate(_trail, bulletTransform.position, bulletTransform.rotation);
     }
