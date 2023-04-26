@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEditor;
 using UnityEngine;
 
@@ -19,8 +20,8 @@ public class GunWeapon : MonoBehaviour
     {
         if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, controller) || Input.GetKeyDown(KeyCode.Space))
         {
-            BulletBehaviour instantiatedBullet = Instantiate(bullet, nozzle.position, nozzle.rotation);
-            Rigidbody body = instantiatedBullet.GetComponent<Rigidbody>();
+            GameObject networkedBullet = PhotonNetwork.Instantiate(bullet.name, nozzle.position, nozzle.rotation);
+            Rigidbody body = networkedBullet.GetComponent<Rigidbody>();
             body.AddForce(nozzle.forward * force, ForceMode.Impulse);
         }
     }

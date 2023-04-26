@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
+    private void Start()
+    {
+        Destroy(this, 5);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         var tileCollisionHandler = other.gameObject.GetComponent<TileToggleHelper>();
