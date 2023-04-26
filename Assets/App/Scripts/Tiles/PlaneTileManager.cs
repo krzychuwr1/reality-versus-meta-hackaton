@@ -11,7 +11,7 @@ namespace App.Scripts.Tiles {
         private Vector2 _roundedTileSize;
         public event Action<List<TileCollisionHandler>> OnTileCreationComplete;
 
-        private void Awake() {
+        public void InitializeTiles() {
             var bounds = tileRenderer.localBounds;
             float x = bounds.size.x * transform.localScale.x;
             float y = bounds.size.y * transform.localScale.y;

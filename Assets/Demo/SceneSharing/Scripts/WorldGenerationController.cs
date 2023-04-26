@@ -16,7 +16,7 @@ public class WorldGenerationController : MonoBehaviour
 
     bool                sceneAlignmentApplied = false;
 
-    public static UnityEvent onSceneGenerated;
+    public static UnityEvent onSceneGenerated = new UnityEvent();
     
 
     // Start is called before the first frame update

@@ -18,10 +18,12 @@ public class TileSetup : MonoBehaviour {
         var numberOfTileManagers = planeTileManagers.Length + obstacleTileManagers.Length;
         foreach (var planeTileManager in planeTileManagers) {
             planeTileManager.OnTileCreationComplete += OnTileCreationComplete;
+            planeTileManager.InitializeTiles();
         }
         
         foreach (var obstacleTileManager in obstacleTileManagers) {
             obstacleTileManager.OnTileCreationComplete += OnTileCreationComplete;
+            obstacleTileManager.InitializeTiles();
         }
         
         void OnTileCreationComplete(List<TileCollisionHandler> tileCollisionHandlers) {

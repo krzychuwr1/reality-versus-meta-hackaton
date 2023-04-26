@@ -11,7 +11,7 @@ namespace App.Scripts.Tiles {
         private Vector2 _roundedTileSize;
         public event Action<List<TileCollisionHandler>> OnTileCreationComplete;
 
-        private void Awake() {
+        public void InitializeTiles() {
             var bounds = tileRenderer.localBounds;
             //Convert lossy scale to local space
             var lossyScale = tileRenderer.transform.lossyScale;
