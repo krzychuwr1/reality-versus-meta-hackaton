@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: -4448553927268306808}
   - component: {fileID: -8892905463002394703}
   m_Layer: 14
-  m_Name: TWBBallBullet
+  m_Name: TWBBallBulletA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,8 +194,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.41194963, g: 0.74703974, b: 1, a: 0}
-      key1: {r: 0, g: 0.28449333, b: 0.7075472, a: 0.9147059}
+      key0: {r: 0.41176474, g: 1, b: 0.51813895, a: 0}
+      key1: {r: 0.16957276, g: 0.7058824, b: 0, a: 0.9147059}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1575,7 +1575,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.8742138, g: 0.98876905, b: 1, a: 1}
-        key1: {r: 0.11764705, g: 0.78885525, b: 1, a: 0}
+        key1: {r: 0.28633317, g: 1, b: 0.11764705, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5173,4 +5173,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9292e68593e9e1a4aaf80a238f2efc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trail: {fileID: 0}
+  isVirtual: 1

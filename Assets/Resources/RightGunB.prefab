@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 1
-  bulletA: {fileID: 4697661865034875254, guid: 5f9be32ca0ab8d14495ff50733f5e9cd, type: 3}
-  bulletB: {fileID: 4697661865034875254, guid: 76396a11db52e58409d75b7d06c3c374, type: 3}
+  bulletA: {fileID: -8892905463002394703, guid: ef67ad2485b80614aa444d7d834c16c1, type: 3}
+  bulletB: {fileID: -8892905463002394703, guid: 628e559a209e8974788dece5e74e3bdc, type: 3}
   nozzle: {fileID: 8935170845263996270}
   force: 5

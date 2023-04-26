@@ -17,23 +17,23 @@ public class PassthroughAvatarPhoton : MonoBehaviour, IPunObservable
         body = new GameObject("Player" + photonView.CreatorActorNr).transform;
         bool isVirtual = PhotonNetwork.LocalPlayer.ActorNumber % 2 > 0;
 
-        right =   Instantiate(isVirtual ? rightAPrefab : rightBPrefab, Vector3.zero, Quaternion.identity).transform;
-        WeaponBehaviour rightGun = right.GetComponent<WeaponBehaviour>();
-        rightGun.IsMine = photonView.IsMine;
-        rightGun.IsVirtual = isVirtual;
-
-        left =  Instantiate(isVirtual ? leftAPrefab : rightBPrefab, Vector3.zero, Quaternion.identity).transform;
-        WeaponBehaviour leftGun = right.GetComponent<WeaponBehaviour>();
-        leftGun.IsMine = photonView.IsMine;
-        leftGun.IsVirtual = isVirtual;
-
         if (!photonView.IsMine)
         {
-            head = headPrefab == null ?
-                new GameObject("head").transform :
-                Instantiate(headPrefab, Vector3.zero, Quaternion.identity).transform;
+            head = headPrefab == null ?new GameObject("head").transform : Instantiate(headPrefab, Vector3.zero, Quaternion.identity).transform;
             
             head.SetParent(body);
+        }
+        else
+        {
+            right = PhotonNetwork.Instantiate(isVirtual ? rightAPrefab.name : rightBPrefab.name, Vector3.zero, Quaternion.identity).transform;
+            WeaponBehaviour rightGun = right.GetComponent<WeaponBehaviour>();
+            rightGun.IsMine = photonView.IsMine;
+            rightGun.IsVirtual = isVirtual;
+
+            left = PhotonNetwork.Instantiate(isVirtual ? leftAPrefab.name : rightBPrefab.name, Vector3.zero, Quaternion.identity).transform;
+            WeaponBehaviour leftGun = right.GetComponent<WeaponBehaviour>();
+            leftGun.IsMine = photonView.IsMine;
+            leftGun.IsVirtual = isVirtual;
         }
         right.SetParent(body);
         left.SetParent(body);
