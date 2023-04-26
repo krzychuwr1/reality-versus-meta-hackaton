@@ -35,12 +35,12 @@ public class ScoreCanvas : MonoBehaviour {
         timeSlider.maxValue = GameStateManager.Instance._gameTime;
         timeSlider.value = GameStateManager.Instance._gameTime;
         canvasGroup.alpha = 1;
+        StartCoroutine(UpdateScore());
     }
     
     private void OnGameStateChanged(GameState gameState) {
         if (gameState == GameState.GameStarted) {
             StartCoroutine(GameStarted());
-            StartCoroutine(UpdateScore());
         }
     }
     
