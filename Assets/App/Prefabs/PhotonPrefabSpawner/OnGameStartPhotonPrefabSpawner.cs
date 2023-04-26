@@ -23,8 +23,7 @@ namespace App.Prefabs.PhotonPrefabSpawner
             {
                 bool isVirtual = PhotonNetwork.LocalPlayer.ActorNumber % 2 > 0;
 
-                GameObject weapon = PhotonNetwork.Instantiate(isVirtual ? weaponA.name : weaponB.name, transform.position, transform.rotation);
-                weapon.transform.SetParent(transform);
+                GameObject weapon = Instantiate(isVirtual ? weaponA : weaponB, transform);
                 weapon.GetComponent<WeaponBehaviour>().IsVirtual = isVirtual;
             }
         }

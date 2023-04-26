@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class PassthroughAvatarPhoton : MonoBehaviour, IPunObservable
 {
-    public GameObject headPrefab, leftPrefab, rightPrefab;
+    public GameObject headPrefab, APrefab, BPrefab;
     private Transform head, right, left, body;
     private AvatarPassthrough passthrough;
     private PhotonView photonView;
@@ -16,16 +16,12 @@ public class PassthroughAvatarPhoton : MonoBehaviour, IPunObservable
 
         if (!photonView.IsMine)
         {
+            bool isVirtual = photonView.OwnerActorNr % 2 > 0;
+
             body = new GameObject("Player" + photonView.CreatorActorNr).transform;
-            head = headPrefab == null ?
-                new GameObject("head").transform :
-                Instantiate(headPrefab, Vector3.zero, Quaternion.identity).transform;
-            right = rightPrefab == null ?
-                new GameObject("right").transform :
-                Instantiate(rightPrefab, Vector3.zero, Quaternion.identity).transform;
-            left = leftPrefab == null ?
-                new GameObject("left").transform :
-                Instantiate(leftPrefab, Vector3.zero, Quaternion.identity).transform;
+            head = headPrefab == null ? new GameObject("head").transform : Instantiate(headPrefab, Vector3.zero, Quaternion.identity).transform;
+            right = Instantiate(isVirtual? APrefab : BPrefab, Vector3.zero, Quaternion.identity).transform;
+            left = Instantiate(isVirtual ? APrefab : BPrefab, Vector3.zero, Quaternion.identity).transform;
 
             head.SetParent(body);
 

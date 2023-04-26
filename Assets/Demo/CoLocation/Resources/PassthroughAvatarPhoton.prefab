@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headPrefab: {fileID: 4018148527719792745, guid: 33c642019dba1d546a6252c4cab7843f, type: 3}
-  leftPrefab: {fileID: 5248692711994149615, guid: 5da7ee4b7f1075247854f8045dbb5044, type: 3}
-  rightPrefab: {fileID: 5248692711994149615, guid: 5da7ee4b7f1075247854f8045dbb5044, type: 3}
+  APrefab: {fileID: 8935170846787715728, guid: 47a9c774e4e444f4ca8f11527bafe201, type: 3}
+  BPrefab: {fileID: 8935170846787715728, guid: a833361d70770514eaf2092784e836d7, type: 3}
 --- !u!114 &-6950794933388312517
 MonoBehaviour:
   m_ObjectHideFlags: 0
