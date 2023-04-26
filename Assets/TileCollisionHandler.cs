@@ -20,6 +20,6 @@ public class TileCollisionHandler : MonoBehaviour {
     }
 
     public void OnHit(HitType team) {
-        _meshRenderer.enabled = team == HitType.TeamVirtual;
+        _meshRenderer.enabled = team == HitType.TeamReality;
     }
 }
