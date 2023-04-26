@@ -16,12 +16,14 @@ public class BulletBehaviour : MonoBehaviour
         {
             if (gameObject) PhotonNetwork.Destroy(gameObject);
         }, 5f);
+        if (!_trail) return;
         var bulletTransform = transform;
         _trailInstance = Instantiate(_trail, bulletTransform.position, bulletTransform.rotation);
     }
 
     private void Update()
     {
+        if (!_trailInstance) return;
         var bulletTransform = transform;
         _trailInstance.transform.position = bulletTransform.position;
         _trailInstance.transform.rotation = bulletTransform.rotation;
@@ -29,6 +31,7 @@ public class BulletBehaviour : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (!_trailInstance) return;
         Destroy(_trailInstance.gameObject, 0.1f);
     }
 
