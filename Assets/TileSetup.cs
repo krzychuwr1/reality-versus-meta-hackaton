@@ -73,10 +73,10 @@ public class TileSetup : MonoBehaviour {
                                 tileCollisionHandler.OnHit(TileCollisionHandler.HitType.TeamVirtual);
                             }
 
-                            yield return new WaitForSeconds(0.01f);
+                            yield return new WaitForSeconds(0.005f);
                         }
                         
-                        yield return new WaitForSeconds(0.01f);
+                        yield return new WaitForSeconds(0.005f);
                     }
                     HasSetupTiles = true;
                 }
