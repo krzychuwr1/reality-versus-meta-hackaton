@@ -17,11 +17,12 @@ public class PassthroughAvatarPhoton : MonoBehaviour, IPunObservable
         if (!photonView.IsMine)
         {
             bool isVirtual = photonView.OwnerActorNr % 2 > 0;
+            GameObject weapon = isVirtual ? APrefab : BPrefab;
 
             body = new GameObject("Player" + photonView.CreatorActorNr).transform;
             head = headPrefab == null ? new GameObject("head").transform : Instantiate(headPrefab, Vector3.zero, Quaternion.identity).transform;
-            right = Instantiate(isVirtual? APrefab : BPrefab, Vector3.zero, Quaternion.identity).transform;
-            left = Instantiate(isVirtual ? APrefab : BPrefab, Vector3.zero, Quaternion.identity).transform;
+            right = Instantiate(weapon, Vector3.zero, Quaternion.identity).transform;
+            left = Instantiate(weapon, Vector3.zero, Quaternion.identity).transform;
 
             head.SetParent(body);
 

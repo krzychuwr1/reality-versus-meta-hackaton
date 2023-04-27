@@ -16,21 +16,13 @@ public class WeaponBehaviour : MonoBehaviour
 
     public bool IsVirtual { get; set; }
 
-    private bool isMine;
-
-    private void Start()
-    {
-        PhotonView view = GetComponent<PhotonView>();
-        isMine = view.IsMine;
-    }
-
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, controller) && isMine)
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, controller))
         {
-            BulletBehaviour bulletTemplate = IsVirtual ? bulletA : bulletB;
+            BulletBehaviour bullet = IsVirtual ? bulletA : bulletB;
 
-            GameObject networkedBullet = PhotonNetwork.Instantiate(bulletTemplate.name, nozzle.position, nozzle.rotation);
+            GameObject networkedBullet = PhotonNetwork.Instantiate(bullet.name, nozzle.position, nozzle.rotation);
             Rigidbody body = networkedBullet.GetComponent<Rigidbody>();
             body.AddForce(nozzle.forward * force, ForceMode.Impulse);
         }
