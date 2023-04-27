@@ -194,8 +194,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.41176474, g: 1, b: 0.51813895, a: 0}
-      key1: {r: 0.16957276, g: 0.7058824, b: 0, a: 0.9147059}
+      key0: {r: 0.41176474, g: 1, b: 0.8801018, a: 0}
+      key1: {r: 0.03137255, g: 0.7254902, b: 0.7137255, a: 0.9147059}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1575,7 +1575,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.8742138, g: 0.98876905, b: 1, a: 1}
-        key1: {r: 0.28633317, g: 1, b: 0.11764705, a: 0}
+        key1: {r: 0.03137255, g: 0.7254902, b: 0.7137255, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
