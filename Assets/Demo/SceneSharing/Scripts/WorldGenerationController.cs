@@ -15,12 +15,19 @@ public class WorldGenerationController : MonoBehaviour
     [SerializeField]
     GameObject          obstaclePrefab;
 
-    List<GameObject>    sceneObjects = new List<GameObject>();
+    public List<GameObject>    sceneObjects = new List<GameObject>();
 
     bool                sceneAlignmentApplied = false;
 
     public static UnityEvent onSceneGenerated = new UnityEvent();
     
+    public static WorldGenerationController Instance { get; private set; }
+    
+    private void Awake()
+    {
+        Instance = this;
+    }
+
 
     // Start is called before the first frame update
     void Start()

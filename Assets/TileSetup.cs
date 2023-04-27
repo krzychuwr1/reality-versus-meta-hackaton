@@ -50,7 +50,14 @@ public class TileSetup : MonoBehaviour {
                     obstacleTileManager.OnTileCreationComplete -= OnTileCreationComplete;
                 }
 
-                var sceneCenter = Vector3.zero;
+                var sceneObjects = WorldGenerationController.Instance.sceneObjects;
+                //Get the combined bounds of all scene objects using their transform
+                var sceneBounds = new Bounds();
+                foreach (var sceneObject in sceneObjects) {
+                    sceneBounds.Encapsulate(sceneObject.transform.position);
+                }
+                
+                var sceneCenter = sceneBounds.center;
 
                 foreach (var handlersLists in tileCollisionHandlersLists) {
                     TotalAmountOfTiles += handlersLists.Count;
