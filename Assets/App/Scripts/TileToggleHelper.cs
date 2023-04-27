@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using App.Scripts;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -17,5 +18,7 @@ public class TileToggleHelper : MonoBehaviour
     } 
     public void Toggle(bool type) {
         meshRenderer.enabled = type;
+        AudioSource.PlayClipAtPoint(AudioManager.Instance.tileHitAudio, transform.position);
+        GameStateManager.Score += type ? -1 : 1;
     }
 }
