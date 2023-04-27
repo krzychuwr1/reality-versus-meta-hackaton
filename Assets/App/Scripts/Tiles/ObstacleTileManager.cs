@@ -31,13 +31,11 @@ namespace App.Scripts.Tiles {
 
             //Scale the tiles to fit the x and y axis
             _roundedTileSize = new Vector2(x / tilesInX, y / tilesInY);
-            var offset = new Vector3(x / 2, y / 2) - new Vector3(_roundedTileSize.x / 2, _roundedTileSize.y / 2);
 
             for (int i = 0; i < tilesInX; i++) {
                 for (int j = 0; j < tilesInY; j++) {
                     var tileGo = Instantiate(tilePrefab);
                     //Convert offset to local space
-                    var localOffset = transform.TransformDirection(offset);
                     tileGo.transform.localScale = new Vector3(_roundedTileSize.x, _roundedTileSize.y, 1);
                     tileGo.transform.localRotation = tileRoot.transform.rotation * Quaternion.Euler(0, 180, 0);
                     tileGo.transform.SetParent(tileRoot.transform, true);
