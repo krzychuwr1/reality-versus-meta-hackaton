@@ -1357,7 +1357,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1385,12 +1385,12 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -4172,18 +4172,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4281125440961127253, guid: d2c68afb610ac4040b2f7f3721e6e0a6, type: 3}
-      propertyPath: music
-      value: 
-      objectReference: {fileID: 8300000, guid: 1e06f83ded831486ca1e2b5c07e3a360, type: 3}
-    - target: {fileID: 4281125440961127253, guid: d2c68afb610ac4040b2f7f3721e6e0a6, type: 3}
-      propertyPath: gunShotAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 158941a16e4a1495ebda09980f605b5d, type: 3}
-    - target: {fileID: 4281125440961127253, guid: d2c68afb610ac4040b2f7f3721e6e0a6, type: 3}
-      propertyPath: tileHitAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: bfc7ff019977048f0abe9d1e927f8de7, type: 3}
     - target: {fileID: 4663573918848651582, guid: d2c68afb610ac4040b2f7f3721e6e0a6, type: 3}
       propertyPath: m_Name
       value: AudioManager
