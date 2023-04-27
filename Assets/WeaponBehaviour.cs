@@ -1,3 +1,4 @@
+using App.Scripts;
 using Photon.Pun;
 using UnityEngine;
 
@@ -30,9 +31,12 @@ public class WeaponBehaviour : MonoBehaviour
         {
             BulletBehaviour bulletTemplate = IsVirtual ? bulletA : bulletB;
 
-            GameObject networkedBullet = PhotonNetwork.Instantiate(bulletTemplate.name, nozzle.position, nozzle.rotation);
+            var position = nozzle.position;
+            GameObject networkedBullet = PhotonNetwork.Instantiate(bulletTemplate.name, position, nozzle.rotation);
             Rigidbody body = networkedBullet.GetComponent<Rigidbody>();
             body.AddForce(nozzle.forward * force, ForceMode.Impulse);
+            
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.gunShotAudio, position);
         }
     }
 }

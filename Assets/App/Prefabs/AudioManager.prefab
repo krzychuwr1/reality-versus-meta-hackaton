@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daafd1eb926a64225a9013c2823c9474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileHitAudio: {fileID: 8300000, guid: bfc7ff019977048f0abe9d1e927f8de7, type: 3}
+  gunShotAudio: {fileID: 8300000, guid: 158941a16e4a1495ebda09980f605b5d, type: 3}
+  gameMusic: {fileID: 8300000, guid: 1e06f83ded831486ca1e2b5c07e3a360, type: 3}
+  menuMusic: {fileID: 8300000, guid: 0c6bdda5ba09b427db0ac7cfdfa41ee7, type: 3}
