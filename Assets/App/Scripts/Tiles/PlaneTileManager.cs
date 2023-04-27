@@ -23,8 +23,8 @@ namespace App.Scripts.Tiles {
             var tiles = new List<TileCollisionHandler>();
 
             //Fit tiles per axis
-            float tilesInX = Mathf.Floor(x / tileSize);
-            float tilesInY = Mathf.Floor(y / tileSize);
+            float tilesInX = Mathf.Clamp(Mathf.Floor(x / tileSize), 1, Mathf.Infinity);
+            float tilesInY = Mathf.Clamp(Mathf.Floor(y / tileSize), 1, Mathf.Infinity);
 
             //Scale the tiles to fit the x and y axis
             _roundedTileSize = new Vector2(x / tilesInX, y / tilesInY);
