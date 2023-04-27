@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headPrefab: {fileID: 4018148527719792745, guid: 33c642019dba1d546a6252c4cab7843f, type: 3}
   APrefab: {fileID: 8935170846787715728, guid: 349af7cfc497fcd438539a828023a0e2, type: 3}
-  BPrefab: {fileID: 8935170846787715728, guid: a833361d70770514eaf2092784e836d7, type: 3}
+  BPrefab: {fileID: 8935170846787715728, guid: 370e00958498ee8469363769ef7276a1, type: 3}
 --- !u!114 &-6950794933388312517
 MonoBehaviour:
   m_ObjectHideFlags: 0

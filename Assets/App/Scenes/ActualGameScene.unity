@@ -2147,6 +2147,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 81505709, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
+      propertyPath: weaponA
+      value: 
+      objectReference: {fileID: 8935170846787715728, guid: 5148d0182f6aa7d43b4b526ac5aca29a, type: 3}
+    - target: {fileID: 81505709, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
+      propertyPath: weaponB
+      value: 
+      objectReference: {fileID: 8935170846787715728, guid: b3ce387afa1edd946904ade9cf47cdd1, type: 3}
+    - target: {fileID: 1116674987, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
+      propertyPath: weaponA
+      value: 
+      objectReference: {fileID: 8935170846787715728, guid: 3fd353710ed467545a4060f302e558d2, type: 3}
+    - target: {fileID: 1116674987, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
+      propertyPath: weaponB
+      value: 
+      objectReference: {fileID: 8935170846787715728, guid: 1f89d259ad4ca6c4abbf1d5549594b38, type: 3}
     - target: {fileID: 1867148077, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
       propertyPath: _gameObjects.Array.data[1]
       value: 
