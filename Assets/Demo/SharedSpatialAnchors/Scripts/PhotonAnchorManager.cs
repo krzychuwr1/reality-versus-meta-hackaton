@@ -190,10 +190,7 @@ public class PhotonAnchorManager : PhotonPun.MonoBehaviourPunCallbacks
             lobbyPanel.gameObject.SetActive(false);
         }
 
-        if (SampleController.Instance.automaticCoLocation)
-        {
-            Photon.Pun.PhotonNetwork.Instantiate("PassthroughAvatarPhoton", Vector3.zero, Quaternion.identity);
-        }
+        Photon.Pun.PhotonNetwork.Instantiate("PassthroughAvatarPhoton", Vector3.zero, Quaternion.identity);
 
         GameObject sceneCaptureController = GameObject.Find("SceneCaptureController");
         if (sceneCaptureController)
