@@ -1571,7 +1571,7 @@ PrefabInstance:
       objectReference: {fileID: 1867148069}
     - target: {fileID: 6257580317495960100, guid: 28ff349badfc1f94c834e85be888575a, type: 3}
       propertyPath: automaticCoLocation
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6257580317495960103, guid: 28ff349badfc1f94c834e85be888575a, type: 3}
       propertyPath: cubePrefab
