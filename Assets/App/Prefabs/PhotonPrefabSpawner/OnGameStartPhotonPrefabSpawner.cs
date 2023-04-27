@@ -25,6 +25,7 @@ namespace App.Prefabs.PhotonPrefabSpawner
 
                 GameObject weapon = Instantiate(isVirtual ? weaponA : weaponB, transform);
                 weapon.GetComponent<WeaponBehaviour>().IsVirtual = isVirtual;
+               
             }
         }
 
