@@ -12,7 +12,7 @@ public class FollowTransformAnchorForward : MonoBehaviour
     private void Update() {
         if(anchor != null) {
             var newForward = new Vector3(anchor.transform.forward.x, 0, anchor.transform.forward.z).normalized;
-            transform.position = new Vector3(anchor.transform.position.x, constantHeight, anchor.transform.position.z) + (newForward * constantDist);
+            transform.position = new Vector3(anchor.transform.position.x, anchor.transform.position.y, anchor.transform.position.z) + (newForward * constantDist);
             transform.rotation = Quaternion.LookRotation(newForward, Vector3.up);
         }
     }
