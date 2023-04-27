@@ -2221,15 +2221,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2488014090043354221, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
       propertyPath: near clip plane
-      value: 0.3
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2504069859964701731, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
       propertyPath: far clip plane
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 2504069859964701731, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
+      propertyPath: near clip plane
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 2504069861913170873, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
       propertyPath: far clip plane
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504069861913170873, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
+      propertyPath: near clip plane
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
