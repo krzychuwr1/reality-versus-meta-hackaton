@@ -5,7 +5,7 @@ using UnityEngine;
 namespace App.Scripts.Tiles {
     public class ObstacleTileManager : MonoBehaviour {
         [SerializeField] private GameObject tilePrefab;
-        [SerializeField] private int tileSize = 1;
+        [SerializeField] private float tileSize = 0.25f;
         [SerializeField] private Transform tileRoot;
         [SerializeField] private Renderer tileRenderer;
         private Vector2 _roundedTileSize;
