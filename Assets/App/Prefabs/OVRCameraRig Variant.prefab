@@ -224,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2037080, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: near clip plane
-      value: 0.3
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2037080, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -250,9 +250,17 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 20000010189485334, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      propertyPath: near clip plane
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 20000012175207052, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: far clip plane
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000012175207052, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      propertyPath: near clip plane
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 718647033368965644, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -313,8 +321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20cb7d6e02d8d734682bd93e346a4aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponA: {fileID: 8935170846787715728, guid: 47a9c774e4e444f4ca8f11527bafe201, type: 3}
-  weaponB: {fileID: 8935170846787715728, guid: a696774517f82b74fb7416a69db6ab11, type: 3}
+  weaponA: {fileID: 8935170846787715728, guid: 5148d0182f6aa7d43b4b526ac5aca29a, type: 3}
+  weaponB: {fileID: 8935170846787715728, guid: b3ce387afa1edd946904ade9cf47cdd1, type: 3}
 --- !u!1 &2487268027213480603 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1054112583220142, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
@@ -332,8 +340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20cb7d6e02d8d734682bd93e346a4aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponA: {fileID: 8935170846787715728, guid: c1065741c55cb1e43a6aea8afc2dc516, type: 3}
-  weaponB: {fileID: 8935170846787715728, guid: ff6f7fdac6248674898de522baf95f5b, type: 3}
+  weaponA: {fileID: 8935170846787715728, guid: 3fd353710ed467545a4060f302e558d2, type: 3}
+  weaponB: {fileID: 8935170846787715728, guid: 1f89d259ad4ca6c4abbf1d5549594b38, type: 3}
 --- !u!4 &2488014090042762161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
