@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 9132857372855820733, guid: c614d0645fd834db28d4912bbebd98e8, type: 3}
-  tileSize: 1
+  tileSize: 0.25
   tileRoot: {fileID: 7246867519969354328}
   tileRenderer: {fileID: 2861447264511688610}
 --- !u!33 &5126859526236726859
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 9132857372855820733, guid: c614d0645fd834db28d4912bbebd98e8, type: 3}
-  tileSize: 1
+  tileSize: 0.25
   tileRoot: {fileID: 3731249260900933394}
   tileRenderer: {fileID: 6534135541253240472}
 --- !u!33 &2884776465337899370
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 9132857372855820733, guid: c614d0645fd834db28d4912bbebd98e8, type: 3}
-  tileSize: 1
+  tileSize: 0.25
   tileRoot: {fileID: 4042337891003882826}
   tileRenderer: {fileID: 8762644218662314231}
 --- !u!33 &4910815375793008254
@@ -1282,7 +1282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 9132857372855820733, guid: c614d0645fd834db28d4912bbebd98e8, type: 3}
-  tileSize: 1
+  tileSize: 0.25
   tileRoot: {fileID: 3736939026293569732}
   tileRenderer: {fileID: 497608744738495099}
 --- !u!33 &2044118156737583202
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 9132857372855820733, guid: c614d0645fd834db28d4912bbebd98e8, type: 3}
-  tileSize: 1
+  tileSize: 0.25
   tileRoot: {fileID: 6548253565838458059}
   tileRenderer: {fileID: 7793542831303347505}
 --- !u!33 &8777015847626509360
