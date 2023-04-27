@@ -123,7 +123,7 @@ namespace App.Scripts.Oculus
 
             // Pinch
             //dirty hack
-            float pinchAmount = 1;// OVRControllerUtility.GetPinchAmount(_controller);
+            float pinchAmount = 0.9f;// OVRControllerUtility.GetPinchAmount(_controller);
             _animPinch = Mathf.Lerp(_animPinch, pinchAmount, _animPinchGain * Time.deltaTime);
             _animator.SetFloat(_animParamPinch, _animPinch);
 

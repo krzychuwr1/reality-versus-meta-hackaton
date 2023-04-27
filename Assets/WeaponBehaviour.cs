@@ -22,9 +22,11 @@ public class WeaponBehaviour : MonoBehaviour
         {
             BulletBehaviour bullet = IsVirtual ? bulletA : bulletB;
 
-            GameObject networkedBullet = PhotonNetwork.Instantiate(bullet.name, nozzle.position, nozzle.rotation);
+            var position = nozzle.position;
+            GameObject networkedBullet = PhotonNetwork.Instantiate(bullet.name, position, nozzle.rotation);
             Rigidbody body = networkedBullet.GetComponent<Rigidbody>();
             body.AddForce(nozzle.forward * force, ForceMode.Impulse);
+            AudioSource.PlayClipAtPoint(AudioManager.Instance.gunShotAudio, position);
         }
     }
 }
