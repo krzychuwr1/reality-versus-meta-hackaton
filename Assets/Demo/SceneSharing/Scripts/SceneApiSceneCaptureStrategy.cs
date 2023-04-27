@@ -12,6 +12,7 @@ using Plane = Common.Plane;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using System.Runtime.Serialization.Formatters.Binary;
+using App.Scripts;
 
 namespace Common
 {
@@ -46,6 +47,17 @@ namespace Common
             if(debugWithoutPhoton) {
                 InitSceneCapture();
                 BeginCaptureScene();
+            }
+            GameStateManager.Instance.OnGameStateChanged.AddListener(ShareRoomData);
+        }
+
+        private void ShareRoomData(GameState state)
+        {
+            SampleController.Instance.Log("Start ShareRoomData " + _scene);
+            if (state == GameState.GameStarted)
+            {
+                SampleController.Instance.Log("Share Room Data over Phootn.");
+                ShareRoomOnPhoton(_scene);
             }
         }
 
@@ -483,7 +495,7 @@ namespace Common
             //OMEGA TODO - Clean up the callbacks to not conflict with the shared anchor system
             //Cleanup();
 
-            ShareRoomOnPhoton(scene);
+            // ShareRoomOnPhoton(scene);
 
             if (_onComplete != null)
                 _onComplete(scene);
