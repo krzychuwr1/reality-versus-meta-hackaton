@@ -894,8 +894,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchor: {fileID: 1935738338}
-  constantHeight: 1
-  constantDist: 0.5
+  constantHeight: 1.5
+  constantDist: 0.4
 --- !u!1 &935107761 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2488014091530733575, guid: 66e8d7e70db67e446a32080235795e21, type: 3}
@@ -1183,6 +1183,7 @@ MonoBehaviour:
   wallPrefab: {fileID: 4636476875310490604, guid: 7bca12fd1cd903c469fe936a824d4802, type: 3}
   floorPrefab: {fileID: 4636476875310490604, guid: 9bb6a11ca4f00694cb39e342d27c3622, type: 3}
   obstaclePrefab: {fileID: 8196386812720120934, guid: ae26cc0335b12d24e92f49b93c9aa8ba, type: 3}
+  sceneObjects: []
 --- !u!4 &1010886067
 Transform:
   m_ObjectHideFlags: 0
